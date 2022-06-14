@@ -53,6 +53,7 @@ module.exports = User
 
  
 updateFlex mutation updates the current flex of the User.
+
 /backend/index.js
 ```
 updateFlex: async (root, args, context) => {
@@ -73,6 +74,7 @@ updateFlex: async (root, args, context) => {
 
 
 In the getUser query check is done to see if the user is admin and then fetches all the users and returns, if not it returns only the currentuser, which is already available from the context.
+
 /backend/index.js
 ```
 getUser: async (root, args, context) => {
@@ -90,6 +92,7 @@ getUser: async (root, args, context) => {
 
 
 Authentication is done in the shared context.
+
 /backend/index.js
 ```
 context: async ({ req }) => {
@@ -106,6 +109,7 @@ context: async ({ req }) => {
   
 Frontend
 In the index file token is added to the header upon each request.
+
 /frontend/src/index.js
 ```
 const authLink = setContext((_, { headers }) => {
@@ -134,6 +138,7 @@ useEffect(() => {
 ```
 
 Upon successful login in the loginpage token is set to localstorage.
+
 /frontend/src/components/LoginForm.js
 ```
 const [login, result] = useMutation(LOGIN, {
