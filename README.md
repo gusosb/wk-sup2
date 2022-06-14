@@ -51,7 +51,6 @@ module.exports = User
 ```
 
 
- 
 updateFlex mutation updates the current flex of the User.
 
 /backend/index.js
