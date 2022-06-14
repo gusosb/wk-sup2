@@ -1,4 +1,5 @@
-Tech used: Material UI, React Router, Apollo Client + GraphQL, Apollo Server, jsonwebtoken, bcypt, Sequelize ORM, postgreSQL
+Tech used: Material UI, React Router, Apollo Client + GraphQL, Apollo Server, jsonwebtoken, bcypt, Sequelize ORM, postgreSQL.
+
 The wkFlex app is a simple flex time keeping app, adding, or removing flex time is done in the adjust flex box. If the user is an administrator additional navlinks appear and user can see all the users flex time.
   
  
