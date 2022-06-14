@@ -10,7 +10,7 @@ Backend
 Only one table is used, the user table, which contains the flextime.
 
 /backend/models/user.js
-```
+```JavaScript
 const { Model, DataTypes } = require('sequelize')
 
 const { sequelize } = require('../util/db')
