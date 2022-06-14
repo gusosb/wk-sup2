@@ -55,7 +55,7 @@ module.exports = User
 updateFlex mutation updates the current flex of the User.
 
 /backend/index.js
-```
+```JavaScript
 updateFlex: async (root, args, context) => {
   const currentUser = context.currentUser
   if (!currentUser) {
@@ -76,7 +76,7 @@ updateFlex: async (root, args, context) => {
 In the getUser query check is done to see if the user is admin and then fetches all the users and returns, if not it returns only the currentuser, which is already available from the context.
 
 /backend/index.js
-```
+```JavaScript
 getUser: async (root, args, context) => {
   const currentUser = context.currentUser
   if (!currentUser) {
@@ -94,7 +94,7 @@ getUser: async (root, args, context) => {
 Authentication is done in the shared context.
 
 /backend/index.js
-```
+```JavaScript
 context: async ({ req }) => {
   const auth = req ? req.headers.authorization : null
   if (auth && auth.toLowerCase().startsWith('bearer ')) {
@@ -111,7 +111,7 @@ Frontend
 In the index file token is added to the header upon each request.
 
 /frontend/src/index.js
-```
+```JavaScript
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('wkflextoken')
   return {
@@ -125,7 +125,7 @@ const authLink = setContext((_, { headers }) => {
 
 If missing but still present in localstorage Token is set in the main, which makes refreshing the page possible without the need to login again and obtain new token.
 /frontend/src/App.js
-```
+```JavaScript
 useEffect(() => {
     if (!token) {
       // get token from localstorage, if available and set it to token
@@ -140,7 +140,7 @@ useEffect(() => {
 Upon successful login in the loginpage token is set to localstorage.
 
 /frontend/src/components/LoginForm.js
-```
+```JavaScript
 const [login, result] = useMutation(LOGIN, {
     onError: (error) => {
       if (error.graphQLErrors[0].message === "wrong credentials") {
