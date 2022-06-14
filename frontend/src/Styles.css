@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.ii2 {
+  padding: 30px;
+  margin-top: -50px;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.page2 {
+  display: flex;
+  overflow: hidden;
+  max-height: 100vh;
+}
+.stick-ontop {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 40px;
+  align-self: baseline
+}
+.footer {
+  margin-top: auto;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.mxwidth2 {
+  max-height: 100%;
+  max-width: 100%;
+}
+.ee {
+  margin-bottom: 40px;
+}
+.headerpadding {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.mwi {
+  max-height: 30px;
+}
+.mxwdd {
+  max-width: 500px;
+}
+.abs {
+  position: absolute;
+}
+.e2 {
+  max-height: 100px;
+}

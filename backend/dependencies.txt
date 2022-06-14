@@ -1,0 +1,1 @@
+npm install express dotenv pg sequelize apollo-server graphql jsonwebtoken bcrypt
