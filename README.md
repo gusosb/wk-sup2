@@ -8,8 +8,9 @@ The wkFlex app is a simple flex time keeping app, adding, or removing flex time 
  
 Backend
 Only one table is used, the user table, which contains the flextime.
-/backend/models/user.js
 
+/backend/models/user.js
+```
 const { Model, DataTypes } = require('sequelize')
 
 const { sequelize } = require('../util/db')
@@ -47,53 +48,63 @@ User.init({
 })
 
 module.exports = User
+```
 
 
  
-updateFlex mutation updates the current flex of the User:
-    updateFlex: async (root, args, context) => {
-      const currentUser = context.currentUser
-      if (!currentUser) {
-        throw new AuthenticationError("not authenticated")
-      }
-      const data = await User.upsert({
-        id: currentUser.id,
-        flex: args.flex,
-        email: currentUser.email,
-      })
-       // Upsert() method returns two index, first (data[0]) returns upserted   instance
-       // second index contains a boolean (or null) indicating if record was created or updated.
-      return data[0]
-    },
+updateFlex mutation updates the current flex of the User
+```
+updateFlex: async (root, args, context) => {
+  const currentUser = context.currentUser
+  if (!currentUser) {
+    throw new AuthenticationError("not authenticated")
+  }
+  const data = await User.upsert({
+    id: currentUser.id,
+    flex: args.flex,
+    email: currentUser.email,
+  })
+   // Upsert() method returns two index, first (data[0]) returns upserted   instance
+   // second index contains a boolean (or null) indicating if record was created or updated.
+  return data[0]
+},
+```
 
 
 in the getUser query check is done to see if the user is admin and then fetches all the users and returns, if not it returns only the currentuser, which is already available from the context.
-    getUser: async (root, args, context) => {
-      const currentUser = context.currentUser
-      if (!currentUser) {
-        throw new AuthenticationError("not authenticated")
-      }
-      if (currentUser.isAdmin) {
-        const data = await User.findAll()
-        return { User: currentUser, Users: data }
-      }
-      return { User: currentUser}
-    },
+
+```
+getUser: async (root, args, context) => {
+  const currentUser = context.currentUser
+  if (!currentUser) {
+    throw new AuthenticationError("not authenticated")
+  }
+  if (currentUser.isAdmin) {
+    const data = await User.findAll()
+    return { User: currentUser, Users: data }
+  }
+  return { User: currentUser}
+},
+```
 
 
 Authentication is done in the shared context.
-  context: async ({ req }) => {
-    const auth = req ? req.headers.authorization : null
-    if (auth && auth.toLowerCase().startsWith('bearer ')) {
-      const decodedToken = jwt.verify(
-        auth.substring(7), process.env.SECRET
-      )
-      const currentUser = await User.findByPk(decodedToken.id)
-      return { currentUser }
-    }
+```
+context: async ({ req }) => {
+  const auth = req ? req.headers.authorization : null
+  if (auth && auth.toLowerCase().startsWith('bearer ')) {
+    const decodedToken = jwt.verify(
+      auth.substring(7), process.env.SECRET
+    )
+    const currentUser = await User.findByPk(decodedToken.id)
+    return { currentUser }
   }
+}
+```
+  
 Frontend
-In the index file token is added to the header upon each request. 
+In the index file token is added to the header upon each request.
+```
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('wkflextoken')
   return {
@@ -103,8 +114,10 @@ const authLink = setContext((_, { headers }) => {
     }
   }
 })
+```
 
 If missing but still present in localstorage Token is set in the main, which makes refreshing the page possible without the need to login again and obtain new token.
+```
 useEffect(() => {
     if (!token) {
       // get token from localstorage, if available and set it to token
@@ -113,22 +126,26 @@ useEffect(() => {
         setToken(localtoken)
       }
     }
-  }, [psw])
+}, [psw])
+```
 
 Upon successful login in the loginpage token is set to localstorage.
+```
 const [login, result] = useMutation(LOGIN, {
     onError: (error) => {
       if (error.graphQLErrors[0].message === "wrong credentials") {
         notify("Incorrect credentials.")
       }
     },
-  })
-  
+})
+
+
 useEffect(() => {
-    if (result.data) {
-      const token = result.data.login.value
-      setToken(token)
-      localStorage.setItem('wkflextoken', token)
-      navigate('/internal/wkflex/')
-    }
-  }, [result.data]) // eslint-disable-line
+  if (result.data) {
+    const token = result.data.login.value
+    setToken(token)
+    localStorage.setItem('wkflextoken', token)
+    navigate('/internal/wkflex/')
+  }
+}, [result.data]) // eslint-disable-line
+```
