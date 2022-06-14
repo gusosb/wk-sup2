@@ -1,19 +1,19 @@
 import './Styles.css'
-import { Route, Routes, useLocation } from "react-router-dom"
+import { Route, Routes, useLocation, Navigate } from "react-router-dom"
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { Suspense, lazy, useEffect } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
+import { useApolloClient } from '@apollo/client'
 
-const Flex = lazy(() => import('./components/Flex/Flex'))
-
+const FlexHome = lazy(() => import('./components/FlexHome'))
+const FlexLogin = lazy(() => import('./components/FlexLogin'))
+const FlexRegister = lazy(() => import('./components/FlexRegister'))
+const FlexAdmin = lazy(() => import('./components/FlexAdmin'))
 
 
 const App = () => {
 
   document.title = "wkFlex"
-
-  const psw = sessionStorage.getItem('psw')
-  const pass = 'wk'
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [token, setToken] = useState(null)
@@ -44,11 +44,7 @@ const App = () => {
       }
     }
 
-    if (psw !== pass) {
-      sessionStorage.setItem('psw', prompt("Please enter the password."))
-      window.location.reload()
-      }
-  }, [token, psw])
+  }, [token])
 
   
   return (
@@ -57,8 +53,8 @@ const App = () => {
     
     <Suspense fallback={<></>}>
       <Routes>
-      <Route path="login" element={!token ? <FlexLogin notify={notify} errorMessage={errorMessage} setToken={setToken} /> : <Navigate replace to="/internal/wkflex/" />} />
-      <Route path="register" element={!token ? <FlexRegister notify={notify} errorMessage={errorMessage} setToken={setToken} /> : <Navigate replace to="/internal/wkflex/" />} />
+      <Route path="login" element={!token ? <FlexLogin notify={notify} errorMessage={errorMessage} setToken={setToken} /> : <Navigate replace to="/" />} />
+      <Route path="register" element={!token ? <FlexRegister notify={notify} errorMessage={errorMessage} setToken={setToken} /> : <Navigate replace to="/" />} />
 
       <Route path="admin" element={<FlexAdmin token={token} logout={logout} />} />
       <Route path="/" element={token ? <FlexHome logout={logout} /> : <Navigate replace to="login" />} />

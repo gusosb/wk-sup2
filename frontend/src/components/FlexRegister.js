@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client'
-import { REGISTER } from '../../queries'
+import { REGISTER } from '../queries'
 import { useState, useEffect } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import wksmall from '../../images/wksmall.png'
+import wksmall from '../images/wksmall.png'
 
 const FlexRegister = ({ setToken, notify, errorMessage }) => {
 
@@ -33,7 +33,7 @@ const FlexRegister = ({ setToken, notify, errorMessage }) => {
           const token = result.data.createUser.value
           setToken(token)
           localStorage.setItem('wkflextoken', token)
-          navigate('/internal/wkflex/')
+          navigate('/')
         }
     }, [result.data]) // eslint-disable-line
 
@@ -112,12 +112,12 @@ const FlexRegister = ({ setToken, notify, errorMessage }) => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link to="/internal/wkflex/login" variant="body2">
+                <Link to="/login" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item  sx={{ ml: 5 }}>
-                <Link to="/internal/wkflex/login" variant="body2">
+                <Link to="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

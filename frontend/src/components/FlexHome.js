@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { GET_USER, UPDATE_FLEX } from '../../queries'
+import { GET_USER, UPDATE_FLEX } from '../queries'
 import { useState, useEffect } from "react"
 import { NavLink } from 'react-router-dom'
 import Button from '@mui/material/Button'
@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import wksmall from '../../images/wksmall.png'
+import wksmall from '../images/wksmall.png'
 
 const FlexHome = ({ logout }) => {
 
@@ -95,7 +95,7 @@ const FlexHome = ({ logout }) => {
           }}>
 
           <NavLink
-            to="/internal/wkflex/"
+            to="/"
             style={({ isActive }) =>
               isActive ? activeStyle : notactiveStyle
             }
@@ -104,7 +104,7 @@ const FlexHome = ({ logout }) => {
             Home
           </NavLink>
           <NavLink
-            to="/internal/wkflex/admin/"
+            to="/admin/"
             style={({ isActive }) =>
               isActive ? activeStyle : notactiveStyle
             }

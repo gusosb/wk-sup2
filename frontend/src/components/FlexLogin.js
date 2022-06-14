@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client'
-import { LOGIN } from '../../queries'
+import { LOGIN } from '../queries'
 import { useState, useEffect } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
@@ -10,7 +10,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import wksmall from '../../images/wksmall.png'
+import wksmall from '../images/wksmall.png'
 
 
 
@@ -40,7 +40,7 @@ const FlexLogin = ({ setToken, notify, errorMessage }) => {
           const token = result.data.login.value
           setToken(token)
           localStorage.setItem('wkflextoken', token)
-          navigate('/internal/wkflex/')
+          navigate('/')
         }
       }, [result.data]) // eslint-disable-line
 
@@ -107,12 +107,12 @@ const FlexLogin = ({ setToken, notify, errorMessage }) => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link to="/internal/wkflex/register" variant="body2">
+                <Link to="/register" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item sx={{ ml: 5 }}>
-                <Link to="/internal/wkflex/register" variant="body2">
+                <Link to="/register" variant="body2">
                   Don't have an account? Sign Up
                 </Link>
               </Grid>
