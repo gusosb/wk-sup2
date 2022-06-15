@@ -124,6 +124,7 @@ const authLink = setContext((_, { headers }) => {
 
 If missing but still present in localstorage Token is set in App.js, which makes refreshing the page possible without the need to login again and obtain new token.
 
+
 For additional security refreshtoken should be implemented.
 /frontend/src/App.js
 ```JavaScript
