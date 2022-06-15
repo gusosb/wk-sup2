@@ -107,7 +107,8 @@ context: async ({ req }) => {
 ```
 
 
-######Frontend
+###### Frontend
+
 In the index file token is added to the header upon each request.
 
 /frontend/src/index.js
