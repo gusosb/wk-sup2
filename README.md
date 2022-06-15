@@ -5,7 +5,6 @@ The wkFlex app is a simple flex time keeping app, adding, or removing flex time 
  
 
 
-
  
 Backend
 Only one table is used, the user table, which contains the flextime.
@@ -123,7 +122,9 @@ const authLink = setContext((_, { headers }) => {
 })
 ```
 
-If missing but still present in localstorage Token is set in the main, which makes refreshing the page possible without the need to login again and obtain new token.
+If missing but still present in localstorage Token is set in App.js, which makes refreshing the page possible without the need to login again and obtain new token.
+
+For additional security refreshtoken should be implemented.
 /frontend/src/App.js
 ```JavaScript
 useEffect(() => {
@@ -148,7 +149,6 @@ const [login, result] = useMutation(LOGIN, {
       }
     },
 })
-
 
 useEffect(() => {
   if (result.data) {
