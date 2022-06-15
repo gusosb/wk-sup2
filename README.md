@@ -128,6 +128,7 @@ If missing but still present in localstorage Token is set in App.js, which makes
 
 
 For additional security refreshtoken should be implemented.
+
 /frontend/src/App.js
 ```JavaScript
 useEffect(() => {
