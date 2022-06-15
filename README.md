@@ -6,7 +6,7 @@ The wkFlex app is a simple flex time keeping app, adding, or removing flex time 
 
 
  
-Backend
+###### Backend
 Only one table is used, the user table, which contains the flextime.
 
 /backend/models/user.js
@@ -105,8 +105,9 @@ context: async ({ req }) => {
   }
 }
 ```
-  
-Frontend
+
+
+######Frontend
 In the index file token is added to the header upon each request.
 
 /frontend/src/index.js
