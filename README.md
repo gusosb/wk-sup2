@@ -5,6 +5,16 @@ The wkFlex app is a simple flex time keeping app, adding, or removing flex time 
  
 
 
+You can test the app here:
+
+
+Login with admin rights
+
+grebroceibone-8003@yopmail.com
+
+password: test
+
+
  
 ###### Backend
 Only one table is used, the user table, which contains the flextime.
