@@ -173,3 +173,38 @@ useEffect(() => {
   }
 }, [result.data]) // eslint-disable-line
 ```
+
+
+React Router V6 Navlinks are used with the isActive function to apply different inline css styles depending on if link is the selected one.
+/frontent/src/components/FlexAdmin.js
+```
+
+let activeStyle = {
+  textDecoration: "underline",
+  color: '#007AC3',
+  margin: '5px'
+}
+
+let notactiveStyle = {
+  color: 'black',
+  margin: '5px'
+}
+
+<NavLink
+  to="/"
+  style={({ isActive }) =>
+    isActive ? activeStyle : notactiveStyle
+  }
+  end
+>
+  Home
+</NavLink>
+<NavLink
+  to="/admin/"
+  style={({ isActive }) =>
+    isActive ? activeStyle : notactiveStyle
+  }
+>
+  Admin
+</NavLink>
+```
