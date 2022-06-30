@@ -177,7 +177,7 @@ useEffect(() => {
 
 React Router V6 Navlinks are used with the isActive function to apply different inline css styles depending on if link is the selected one.
 /frontent/src/components/FlexAdmin.js
-```
+```JavaScript
 
 let activeStyle = {
   textDecoration: "underline",
