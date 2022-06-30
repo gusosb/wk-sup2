@@ -9,7 +9,9 @@ You can test the app here: https://testwkflex.kanindev.se/
 
 
 Login with admin rights
-grebroceibone-8003@yopmail.com
+
+email: grebroceibone-8003@yopmail.com
+
 password: test
 
 
