@@ -5,13 +5,11 @@ The wkFlex app is a simple flex time keeping app, adding, or removing flex time 
  
 
 
-You can test the app here:
+You can test the app here: https://testwkflex.kanindev.se/
 
 
 Login with admin rights
-
 grebroceibone-8003@yopmail.com
-
 password: test
 
 
