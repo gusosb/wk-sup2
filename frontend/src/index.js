@@ -21,8 +21,8 @@ const authLink = setContext((_, { headers }) => {
 })
 
 
-const httpLink = new HttpLink({ uri: 'https://wkflex.kanindev.se/' })
-//const httpLink = new HttpLink({ uri: 'http://localhost:3002' })
+//const httpLink = new HttpLink({ uri: 'https://wkflex.kanindev.se/' })
+const httpLink = new HttpLink({ uri: 'http://localhost:3002' })
 
 const client = new ApolloClient({
   cache: new InMemoryCache({

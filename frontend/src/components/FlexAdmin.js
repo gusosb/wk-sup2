@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client'
 import { GET_USER } from '../queries'
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useNavigate, NavLink } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import Table from '@mui/material/Table'

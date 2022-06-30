@@ -40,6 +40,9 @@ const FlexRegister = ({ setToken, notify, errorMessage }) => {
 
     const submit = async (event) => {
         event.preventDefault()
+        if (!email || !password || !password2 || (password !== password2)) {
+          return
+        }
         register({ variables: { email, password } })
     }
 
